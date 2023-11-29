@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "forward_list": "cpp",
+        "list": "cpp",
+        "xhash": "cpp",
+        "format": "cpp"
+    }
+}
