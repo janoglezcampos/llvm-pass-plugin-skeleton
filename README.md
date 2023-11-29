@@ -1,6 +1,6 @@
 # LLVM optimization pass skeleton
 
-This is a detailed step-by-step description on how to compile out-of-tree a dynamically linked LLVM pass plugin for the new pass manager in Windows x86_64, tested with llvm 16.x
+This is a detailed step-by-step description on how to compile out-of-tree a dynamically linked LLVM pass plugin for the new pass manager in Windows x86_64, tested with llvm 17.x
 
 Create a new directory where you prefer called "llvm".
 Enter the new directory and clone the LLVM source code.
@@ -19,7 +19,7 @@ Now we need to build LLVM, this includes its libraries, header files, configurat
 
 To do this we need some tools. If you already have CMAKE, a build system and a prefered compiler installed then you can ignore this, but I want to specify everything like if we were in a new computer starting from 0.
 
-What we are gonna see are my personal preferences of tools and installation methods, but you can use any other, and also install them throw their installers or released binaries. We will install CMAKE, Ninja as our build system, Clang as our compiler and LLD as linker throw MSYS2.
+What we are gonna see are my personal preferences of tools and installation methods, but you can use any other, and also install them through their installers or released binaries. We will install CMAKE, Ninja as our build system, Clang as our compiler and LLD as linker through MSYS2.
 
 First download and install [MSYS2](https://www.msys2.org/).
 Now launch the MSYS2 MSYS terminal (Base enviroment of MSYS)
@@ -98,10 +98,10 @@ The file should be found at \<this repo>/build/BasePlugin/LLVMBasePlugin.dll
 
 # Running you pass
 To be able to run this pass, I think is important to have a quick review about how the build process goes with LLVM.
-Mainly, for the understanding of this post, our code will go throw the following stages:
+Mainly, for the understanding of this post, our code will go through the following stages:
 
 1. **IR Generation:** The intermediate representations is a low level representation of our code, common to all programming lenguages and any machine type.
-2. **IR Optimization:** The IR is modified throw passes, each one changing the content of the IR. Here we will insert our pass.
+2. **IR Optimization:** The IR is modified through passes, each one changing the content of the IR. Here we will insert our pass.
 3. **MIR Generation:** The Machine Intermediate representation is similar to the IR (in fact, is a tranformation of it), but now using passes specific to the machine type we are targeting. Writting passes for the MIR generation pipeline would allow applying modifications to the actual instructions used, so this is the point if we would like to do such.
 4. **Object file generation:** Generate object files from MIR.
 5. **Linking: Create the final** executable by linking the object files.
@@ -136,7 +136,7 @@ To generate object files from the IR files, we use the llvm compiler: llc; llc w
 llc --mtriple=x86_64-pc-windows-msvc -filetype=obj  ./test.op.ll -o test.obj
 ```
 
-Finally link the object files together using the linker of your preference. In this case, as we are talking about llvm lets use lld throw clang (remember clang is not a linker, but is capable of calling lld by itself, and also specify the default dependency paths).
+Finally link the object files together using the linker of your preference. In this case, as we are talking about llvm lets use lld through clang (remember clang is not a linker, but is capable of calling lld by itself, and also specify the default dependency paths).
 
 ```
 clang ./test.obj -o test.exe
