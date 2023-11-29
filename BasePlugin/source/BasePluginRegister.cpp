@@ -28,11 +28,13 @@ __declspec(dllexport) extern "C" ::llvm::PassPluginLibraryInfo LLVM_ATTRIBUTE_WE
 
             // This extension point allows adding optimization passes after most of the
             // main optimizations, but before the last cleanup-ish optimizations.
+
             /*PB.registerScalarOptimizerLateEPCallback(
                 [](FunctionPassManager &FPM, OptimizationLevel opt)
                 {
                     FPM.addPass(baseplugin::BasePluginPass());
                 }); */
+
             PB.registerFullLinkTimeOptimizationEarlyEPCallback(
                 [](ModulePassManager &MPM, OptimizationLevel opt)
                 {
