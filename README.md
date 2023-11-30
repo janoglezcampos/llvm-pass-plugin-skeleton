@@ -25,11 +25,12 @@ First download and install [MSYS2](https://www.msys2.org/).
 Now launch the MSYS2 MSYS terminal (Base enviroment of MSYS)
 
 Install the following packages using pacman (pacman -S \<package name\>):
+```
     pacman -S mingw-w64-x86_64-cmake
     pacman -S mingw-w64-x86_64-ninja (is a dependency of cmake, so should already be installed)
     pacman -S mingw-w64-x86_64-clang
     pacman -S mingw-w64-x86_64-lld
-
+```
 You can close the MSYS2 terminal already. (This is because I like to use the windows terminal, if you prefer, you could keep using MSYS2 and skip the next step)
 
 All the required bynaries should be at \<msys2 installation folder\>/mingw64/bin, (by default C:/msys64//mingw64/bin), so if its not already on your PATH, you need to add this directory ([HOW TO](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0)).
