@@ -1,6 +1,6 @@
 # LLVM optimization pass skeleton
 
-This is a detailed step-by-step description on how to compile out-of-tree a dynamically linked LLVM pass plugin for the new pass manager in Windows x86_64, tested with llvm 17.x
+This is a detailed step-by-step description on how to compile out-of-tree a dynamically linked LLVM pass plugin for the new pass manager in Windows x86_64, tested with llvm 16.x
 
 Create a new directory where you prefer called "llvm".
 Enter the new directory and clone the LLVM source code.
